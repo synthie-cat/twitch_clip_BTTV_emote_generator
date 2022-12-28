@@ -1,4 +1,4 @@
-# twitch_clip_BTTV_emote_generator
+# Generate BTTV Emotes from Twitch Clips
 
 This is a Python script that uses FFMPEG to generate BTTV ready emotes. It requires some manual steps to use, as it is a small and specific script.
 
