@@ -13,7 +13,8 @@ There's still some handywork required - mostly because this is a pretty useless,
 1. When promted to `Enter the end frame:` do the same as above - just chose where your BTTV Emote should end
 1. Enter the desired file name ending in .gif (e.g. `kiviSkills.gif`)
 1. Open the Starting Frame in an image program. For ease of use I recommend something thats easily available such as [PhotoPea](https://photopea.com)
-1. Use the selection tool and set it to a **fixed size** of 448×448px. Select the area you want to use and note the top coordinate and the left coordinate. (e.g. 557px from Top, 1382px from the left)
+1. Use the selection tool and set it to a size that is a multiple of 112×112px for best results (default is: 448×448px). Select the area you want to use and note the top coordinate and the left coordinate. (e.g. 557px from Top, 1382px from the left)
+1. When prompted use the size that you've chosen in the previous step.
 1. Wait until the script is done. It will now crop the picutre, generate a GIF palette and create a 112×112px GIF that can be used on BTTV.
 
 ## Disclaimer:

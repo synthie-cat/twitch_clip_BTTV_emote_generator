@@ -1,10 +1,13 @@
 import os
 import subprocess
+import shutil
 
 def download_clip(url, output_prefix):
-    # Create the "cache" subfolder if it doesn't exist
-    if not os.path.exists("cache"):
-        os.makedirs("cache")
+    # Remove the "cache" folder and all of its contents
+    shutil.rmtree("cache", ignore_errors=True)
+
+    # Recreate the "cache" folder
+    os.makedirs("cache", exist_ok=True)
 
     # Use yt-dlp to download the clip
     subprocess.run(["yt-dlp", url, "-o", f"cache/{output_prefix}.mp4"])
@@ -39,9 +42,21 @@ output_filename = input("Enter the output filename: ")
 top = int(input("Enter the top coordinate of the area: "))
 left = int(input("Enter the left coordinate of the area: "))
 
-# Set the width and height of the area to 448x448 pixels
-width = 448
-height = 448
+# Get the width and height of the area from the user
+width = input("Enter the width of the area (default: 448): ")
+height = input("Enter the height of the area (default: 448): ")
+
+# Set the default values if nothing was entered
+if width == "":
+    width = 448
+else:
+    width = int(width)
+
+if height == "":
+    height = 448
+else:
+    height = int(height)
+
 
 # Create the GIF
 create_gif(output_prefix, start_frame, end_frame, output_filename, top, left, width, height)
