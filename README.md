@@ -6,7 +6,7 @@ There's still some handywork required - mostly because this is a pretty useless,
 ## How to use:
 1. Download and install [Python](https://www.python.org/downloads/windows/); Linux users please use your package manager to do so; Mac Users stop using Mac.
 1. Download and install [ffmpeg](https://ffmpeg.org/download.html)
-1. Run `pip -r requirements.txt` to install `yt-dlp`
+1. Run `pip install -r requirements.txt` to install `yt-dlp`
 1. Open a CLI (Windows: PowerShell) and run `python bttv_emote_maker.py`
 1. Paste the URL of the Clip you want to use. You could technically also use complete VODs but that's going to generate a fuckton of garbo. Don't.
 1. When promoted to `Enter the start frame:` navigate to the Scrip Folder => cache. Scroll through the images to select your start enter the number (e.g. You want to start with clip_038.png enter 038. Keep the leading 0)
