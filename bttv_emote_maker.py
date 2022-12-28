@@ -21,7 +21,7 @@ def create_gif(input_prefix, start_frame, end_frame, output_filename, top, left,
     subprocess.run(["ffmpeg", "-y", "-f", "image2", "-start_number", str(start_frame), "-i", f"cache/cropped_{input_prefix}_%03d.png", "-vf", f"fps=10,scale={width}:{height}:flags=lanczos,palettegen=stats_mode=single", f"cache/palette_{input_prefix}_%03d.png"])
 
     # Create the GIF using ffmpeg
-    subprocess.run(["ffmpeg", "-y", "-f", "image2", "-start_number", str(start_frame), "-i", f"cache/cropped_{input_prefix}_%03d.png", "-i", f"palette_{input_prefix}_%03d.png", "-lavfi", f"fps=10,scale=112:112:flags=lanczos,paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle", output_filename])
+    subprocess.run(["ffmpeg", "-y", "-f", "image2", "-start_number", str(start_frame), "-i", f"cache/cropped_{input_prefix}_%03d.png", "-i", f"cache/palette_{input_prefix}_%03d.png", "-lavfi", f"fps=10,scale=112:112:flags=lanczos,paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle", output_filename])
 
 # Get the URL from the user
 url = input("Enter the URL of the clip: ")
