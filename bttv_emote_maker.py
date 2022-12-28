@@ -39,14 +39,22 @@ end_frame = int(input("Enter the end frame: "))
 output_filename = input("Enter the output filename: ")
 
 # Get the top and left coordinates of the area from the user
-top = int(input("Enter the top coordinate of the area: "))
-left = int(input("Enter the left coordinate of the area: "))
+top = input("Enter the top coordinate of the area (default: 0): ")
+left = input("Enter the left coordinate of the area(default: 0): ")
 
 # Get the width and height of the area from the user
 width = input("Enter the width of the area (default: 448): ")
 height = input("Enter the height of the area (default: 448): ")
 
 # Set the default values if nothing was entered
+if top == "":
+    top = 0
+else:
+    top = int(top)
+if left == "":
+    left = 0
+else:
+    top = int(left)
 if width == "":
     width = 448
 else:
