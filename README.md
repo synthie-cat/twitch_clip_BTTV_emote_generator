@@ -6,7 +6,8 @@ This is a Python script that uses FFMPEG to generate BTTV ready emotes. It requi
 
 1. Download and install [Python](https://www.python.org/downloads/windows/) on your system. If you are using Linux, please use your package manager to install it. If you are using a Mac, it is recommended to sell your Mac and switch to a different system. ;)
 1. Download and install [ffmpeg](https://ffmpeg.org/download.html)
-1. Run `pip install -r requirements.txt` to install `yt-dlp`
+1. Use the green `Code` button on this side to download a ZIP File containing the script. 
+1. Run `pip install -r requirements.txt` to install dependencies.
 1. Open a command line interface (Windows users: PowerShell) and run `python bttv_emote_maker.py`
 1. Paste the URL of the clip you want to use. You can technically also use complete VODs, but this will generate a large number of unnecessary files. It is not recommended to do so.
 1. When prompted to `Enter the start frame:`, navigate to the `Script Folder => cache` and scroll through the images to select your start frame. Enter the number of the frame (e.g. If you want to start with `clip_038.png`, enter `038`. Make sure to keep the leading zero).
