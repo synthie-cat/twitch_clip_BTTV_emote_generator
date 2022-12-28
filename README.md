@@ -4,8 +4,8 @@
 There's still some handywork required - mostly because this is a pretty useless, small script.
 
 ## How to use:
-1. Download and install (Python)[https://www.python.org/downloads/windows/]; Linux users please use your package manager to do so; Mac Users stop using Mac.
-1. Download and install (ffmpeg)[https://ffmpeg.org/download.html]
+1. Download and install [Python](https://www.python.org/downloads/windows/); Linux users please use your package manager to do so; Mac Users stop using Mac.
+1. Download and install [ffmpeg](https://ffmpeg.org/download.html)
 1. Run ´pip -r requirements.txt´ to install `yt-dlp`
 1. Open a CLI (Windows: PowerShell) and run `python bttv_emote_maker.py`
 1. Paste the URL of the Clip you want to use. You could technically also use complete VODs but that's going to generate a fuckton of garbo. Don't.
