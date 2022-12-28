@@ -13,18 +13,18 @@ def download_clip(url, output_prefix):
     subprocess.run(["yt-dlp", url, "-o", f"cache/{output_prefix}.mp4"])
 
     # Use ffmpeg to split the clip into individual frames
-    subprocess.run(["ffmpeg", "-i", f"cache/{output_prefix}.mp4", "-vf", "fps=10/1", f"cache/{output_prefix}_%03d.png"])
+    subprocess.run(["ffmpeg", "-loglevel", "quiet", "-i", f"cache/{output_prefix}.mp4", "-vf", "fps=10/1", f"cache/{output_prefix}_%03d.png"])
    
 
 def create_gif(input_prefix, start_frame, end_frame, output_filename, top, left, width, height):
     # Use ffmpeg to generate the GIF Area
-    subprocess.run(["ffmpeg", "-i", f"cache/{output_prefix}_%03d.png", "-vf", f"crop=448:448:{left}:{top}", f"cache/cropped_{output_prefix}_%03d.png"])
+    subprocess.run(["ffmpeg","-loglevel", "quiet", "-i", f"cache/{output_prefix}_%03d.png", "-vf", f"crop=448:448:{left}:{top}", f"cache/cropped_{output_prefix}_%03d.png"])
     
     # Generate the palette using ffmpeg
-    subprocess.run(["ffmpeg", "-y", "-f", "image2", "-start_number", str(start_frame), "-i", f"cache/cropped_{input_prefix}_%03d.png", "-vf", f"fps=10,scale={width}:{height}:flags=lanczos,palettegen=stats_mode=single", f"cache/palette_{input_prefix}_%03d.png"])
+    subprocess.run(["ffmpeg","-loglevel", "quiet", "-y", "-f", "image2", "-start_number", str(start_frame), "-i", f"cache/cropped_{input_prefix}_%03d.png", "-vf", f"fps=10,scale={width}:{height}:flags=lanczos,palettegen=stats_mode=single", f"cache/palette_{input_prefix}_%03d.png"])
 
     # Create the GIF using ffmpeg
-    subprocess.run(["ffmpeg", "-y", "-f", "image2", "-start_number", str(start_frame), "-i", f"cache/cropped_{input_prefix}_%03d.png", "-i", f"cache/palette_{input_prefix}_%03d.png", "-lavfi", f"fps=10,scale=112:112:flags=lanczos,paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle", output_filename])
+    subprocess.run(["ffmpeg","-loglevel", "quiet", "-y", "-f", "image2", "-start_number", str(start_frame), "-i", f"cache/cropped_{input_prefix}_%03d.png", "-i", f"cache/palette_{input_prefix}_%03d.png", "-lavfi", f"fps=10,scale=112:112:flags=lanczos,paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle", output_filename])
 
 # Get the URL from the user
 url = input("Enter the URL of the clip: ")
@@ -60,3 +60,6 @@ else:
 
 # Create the GIF
 create_gif(output_prefix, start_frame, end_frame, output_filename, top, left, width, height)
+
+# All done
+print(f"{output_filename} has been successfully generated")
