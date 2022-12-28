@@ -15,9 +15,7 @@ This is a Python script that uses FFMPEG to generate BTTV ready emotes. It requi
 1. Open the starting frame in an image editing program. It is recommended to use a program that is easily available, such as [PhotoPea](https://photopea.com).
 1. Use the selection tool and set it to a size that is a multiple of 112×112px for best results (default is: 448×448px). Select the area you want to use and note the top coordinate and the left coordinate. (e.g. 557px from top, 1382px from the left)
 1. When prompted, use the size that you've chosen in the previous step.
-1. Wait until the script is finished. It will now crop the picture, generate a GIF palette, and create a 112×112px GIF that can be used on BTTV.*
-
-* - Depending on the filesize it might not work on BTTV. Use fewer frames if that happens. 
+1. Wait until the script is finished. It will now crop the picture, generate a GIF palette, and create a 112×112px GIF that can be used on BTTV. (Depending on the filesize it might not work on BTTV. Use fewer frames if that happens.)
 
 Disclaimer:
 
