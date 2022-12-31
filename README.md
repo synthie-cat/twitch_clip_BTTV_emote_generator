@@ -21,7 +21,8 @@ To run the `bttv_emote_maker.py` script, follow these steps:
 1. Navigate to the directory where the script is located.
 1. Run the script using the `python` command, followed by the script name:
    ```bash
-   python bttv_emote_maker.py```
+   python bttv_emote_maker.py
+   ```
 1. When prompted, paste the URL of the Twitch clip you want to download.
 1. The script will ask you to review the frames. To do that browse with your filebrowser to the script path and review the frames.
 1. Set the start and end frames by entering the frame numbers when prompted.
