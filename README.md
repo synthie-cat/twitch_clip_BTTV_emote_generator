@@ -5,12 +5,34 @@ Platform agnostic command line script that generates BTTV emotes from video sour
 
 To run this script, you will need to have the following software and libraries installed on your system:
 
-- Python 3.6 or higher
-- ffmpeg
+- Python 3.6 or higher [Download](https://www.python.org/downloads/windows/)
+- ffmpeg [Download](https://ffmpeg.org/download.html)
 - yt-dlp (can be installed via `pip install -r requirements.txt`)
 
 Make sure that you have the latest versions of these tools installed on your system before running the script.
 
+### Installing prerequesits for Linux:
+
+Debian / Ubuntu: 
+	```bash
+	sudo apt-get update
+	sudo apt-get install python3 ffmpeg
+	pip3 install -r requirements.txt
+	```
+	
+Arch/Artix/Manjaro:
+	```bash
+	sudo payman -Sy
+	sudo pacman -S python ffmpeg
+	pip3 install -r requirements.txt
+	```
+### Installing prerequesits on Mac:
+Using Homebrew:
+	```
+	brew install python3
+	brew install ffmpeg
+	pip3 install -r requirements.txt
+	```
 ## Useage
 
 ### Running the script
