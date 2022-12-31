@@ -80,7 +80,7 @@ parser.add_argument("--followtop", "-ft", type=int, help="Make left coordinate c
 parser.add_argument("--dir", "-d", type=str, help="Specify custom path. Useful if you want to keep previous files.")
 parser.add_argument("--fps", "-f", type=int, help="Slice with custom FPS. Standard is 10FPS")
 parser.add_argument("--outputsize", "-os", type=int, help="Change square output size. Useful if you want to make a GIF that you don't want to use on BTTV. 112x112px is standard.")
-parser.add_argument("--verbose", "-v", type=str, help="Don't clear the shell. (y/N)")
+parser.add_argument("--verbose", "-v", action="store_true", help="Don't clear the shell.")
 
 args = parser.parse_args()
 
@@ -110,7 +110,7 @@ else:
     size = 112
     
 # Argument Check: Verbose
-if args.verbose == "y":
+if args.verbose:
     pass
 else:
     os.system("clear" if os.name == "posix" else "cls")
