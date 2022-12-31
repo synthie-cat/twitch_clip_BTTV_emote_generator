@@ -63,3 +63,8 @@ To run the `bttv_emote_maker.py` script, follow these steps:
 | `--fps` | `-f` | Slice with custom FPS. |
 | `--outputsize` | `-os` | Change square output size. |
 | `--verbose` | `-v` | Don't clear the shell. |
+
+
+## ToDo:
+- Add none linear paths
+- Add ability to use local videos
