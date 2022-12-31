@@ -14,25 +14,25 @@ Make sure that you have the latest versions of these tools installed on your sys
 ### Installing prerequesits for Linux:
 
 Debian / Ubuntu: 
-	```bash
-	sudo apt-get update
-	sudo apt-get install python3 ffmpeg
-	pip3 install -r requirements.txt
-	```
+```bash
+sudo apt-get update
+sudo apt-get install python3 ffmpeg
+pip3 install -r requirements.txt
+```
 	
 Arch/Artix/Manjaro:
-	```bash
-	sudo payman -Sy
-	sudo pacman -S python ffmpeg
-	pip3 install -r requirements.txt
-	```
+```bash
+sudo payman -Sy
+sudo pacman -S python ffmpeg
+pip3 install -r requirements.txt
+```
 ### Installing prerequesits on Mac:
 Using Homebrew:
-	```
-	brew install python3
-	brew install ffmpeg
-	pip3 install -r requirements.txt
-	```
+```
+brew install python3
+brew install ffmpeg
+pip3 install -r requirements.txt
+```
 ## Useage
 
 ### Running the script
