@@ -2,6 +2,7 @@ import os
 import shutil
 import subprocess
 import argparse
+import sys
 
 def download_clip(url, fps):
     # Download the video using yt-dlp
@@ -62,6 +63,14 @@ def user_input():# Get the specifications from user
     height = int(height)
 
     create_emote(start_frame, end_frame, filename, left, top, width, height, followLeft, followTop, size)
+
+# Check if ffmpeg is installed.
+result = subprocess.run(["ffmpeg", "--version"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+if result.returncode == 0:
+    print("ffmpeg is not installed. The script won't run.")
+    sys.exit()
+else:
+    pass
 
 # Generate arguments and help.
 parser = argparse.ArgumentParser()
