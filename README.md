@@ -34,7 +34,7 @@ pip3 install -r requirements.txt
 After installing python run:
 ```bash
 pip3 install -r requirements.txt
-
+```
 
 ### Installing prerequesits on Mac:
 Using Homebrew:
