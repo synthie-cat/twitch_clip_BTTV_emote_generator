@@ -4,12 +4,14 @@ import subprocess
 import argparse
 import sys
 
-def download_clip(url, fps):
+def download_clip(url):
     # Download the video using yt-dlp
     print("Downloading the clip...")
     subprocess.run(["yt-dlp","-q","--progress", "-o", f"{dir_path}/video.mp4", url])
+    split_video(fps)
 
-    # Split the video into frames with a frame rate of 10 fps
+def split_video(fps):
+    # Split the video into frames
     print("Slicing clip into PNGs")
     subprocess.run(["ffmpeg", "-loglevel", "quiet", "-i", f"{dir_path}/video.mp4", "-vf", f"fps={fps}/1", f"{dir_path}/clip_%03d.png"])
 
@@ -19,7 +21,7 @@ def download_clip(url, fps):
 def create_emote(start_frame, end_frame, filename, left, top, width, height, followLeft, followTop, size):
     print("Cropping and generating palettes...")
     index = 0
-    
+
     # Crop the frames using ffmpeg
     for i in range(start_frame, end_frame+1):
         subprocess.run(["ffmpeg","-loglevel", "quiet", "-i", f"{dir_path}/clip_{i:03d}.png", "-filter:v", f"crop={width}:{height}:{left}:{top}", "-frames:v", "1", f"{dir_path}/cropped_{index:03d}.png"])
@@ -42,7 +44,7 @@ def create_emote(start_frame, end_frame, filename, left, top, width, height, fol
 def complete_run():
     # Get the URL of the video from the user
     url = input("Enter the URL of the clip: ")
-    
+
     download_clip(url, fps)
 
 def user_input():# Get the specifications from user
@@ -53,7 +55,7 @@ def user_input():# Get the specifications from user
     top = input("Enter the top coordinate: ") or 0
     width = input("Enter area width (default: 448): ") or 448
     height = input("Enter area height (default: 448): ") or 448
-    
+
     # Adding default values just in case
     start_frame = int(start_frame)
     end_frame = int(end_frame)
@@ -74,13 +76,15 @@ else:
 
 # Generate arguments and help.
 parser = argparse.ArgumentParser()
-parser.add_argument("--regen", "-rg", action="store_true", help="Regenerate emote based on previous download.")
-parser.add_argument("--followleft", "-fl", type=int, help="Make left coordinate cropping follow a linear distance in pixel per frame.")
-parser.add_argument("--followtop", "-ft", type=int, help="Make left coordinate cropping follow a linear distance in pixel per frame.")
-parser.add_argument("--dir", "-d", type=str, help="Specify custom path. Useful if you want to keep previous files.")
-parser.add_argument("--fps", "-f", type=int, help="Slice with custom FPS. Standard is 10FPS")
-parser.add_argument("--outputsize", "-os", type=int, help="Change square output size. Useful if you want to make a GIF that you don't want to use on BTTV. 112x112px is standard.")
-parser.add_argument("--verbose", "-v", action="store_true", help="Don't clear the shell.")
+# Add the arguments with shortened descriptions
+parser.add_argument("--regen", "-rg", action="store_true", help="Regenerate emote from previous download.")
+parser.add_argument("--followleft", "-fl", type=int, help="Make left coord. follow linear distance (px/frame).")
+parser.add_argument("--followtop", "-ft", type=int, help="Make top coord. follow linear distance (px/frame).")
+parser.add_argument("--dir", "-d", type=str, help="Specify custom path for output files.")
+parser.add_argument("--fps", "-f", type=int, help="Slice with custom FPS (default: 10FPS).")
+parser.add_argument("--outputsize", "-os", type=int, help="Change square output size (default: 112x112px).")
+parser.add_argument("--verbose", "-v", action="store_true", help="Don't clear the shell when running the script.")
+parser.add_argument("--localvideo", "-lv", type=str, help="Copy a local mp4 file to the specified directory.")
 
 args = parser.parse_args()
 
@@ -103,18 +107,23 @@ if args.fps is not None:
 else:
     fps = 10
 
+# Argument Check: Local video copy
+if args.localvideo:
+    shutil.copy(args.localvideo, f"{dir_path}/video.mp4")
+    split_video(fps)
+
 # Argument Check: Change Output Size
 if args.outputsize is not None:
     size = args.outputsize
 else:
     size = 112
-    
+
 # Argument Check: Verbose
 if args.verbose:
     pass
 else:
     os.system("clear" if os.name == "posix" else "cls")
-    
+
 # Argument Check: Make GIF using the previous clip
 if args.regen:
     # Clean Up

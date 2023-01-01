@@ -54,17 +54,18 @@ To run the `bttv_emote_maker.py` script, follow these steps:
 
 ### Arguments
 
-| Argument | Short form | Description |
-| --- | --- | --- |
-| `--regen` | `-rg` | Regenerate emote based on previous download. |
-| `--followleft` | `-fl` | Make left coordinate cropping follow a linear distance in pixels per frame. |
-| `--followtop` | `-ft` | Make top coordinate cropping follow a linear distance in pixels per frame. |
-| `--dir` | `-d` | Specify custom path. |
-| `--fps` | `-f` | Slice with custom FPS. |
-| `--outputsize` | `-os` | Change square output size. |
-| `--verbose` | `-v` | Don't clear the shell. |
+| Argument | Short Flag | Description |
+|----------|------------|-------------|
+| `--regen` | `-rg` | Regenerate emote from previous download. |
+| `--followleft` | `-fl` | Make left coord. follow linear distance (px/frame). |
+| `--followtop` | `-ft` | Make top coord. follow linear distance (px/frame). |
+| `--dir` | `-d` | Specify custom path for output files. |
+| `--fps` | `-f` | Slice with custom FPS (default: 10FPS). |
+| `--outputsize` | `-os` | Change square output size (default: 112x112px). |
+| `--verbose` | `-v` | Don't clear the shell when running the script. |
+| `--localvideo` | `-lv` | Copy a local mp4 file to the specified directory instead of downloading. |
 
 
 ## ToDo:
 - Add none linear paths
-- Add ability to use local videos
+-~Add ability to use local videos~
