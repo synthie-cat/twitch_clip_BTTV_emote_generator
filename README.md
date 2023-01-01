@@ -68,4 +68,4 @@ To run the `bttv_emote_maker.py` script, follow these steps:
 
 ## ToDo:
 - Add none linear paths
--~Add ability to use local videos~
+- ~Add ability to use local videos~
