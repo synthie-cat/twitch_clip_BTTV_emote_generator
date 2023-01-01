@@ -76,7 +76,7 @@ To run the `bttv_emote_maker.py` script, follow these steps:
 | `--localvideo` | `-lv` | Copy a local mp4 file to the specified directory instead of downloading. |
 
 ## Video Tutorial
-[![Youtube Link to a Video Tutorial](https://i9.ytimg.com/vi/SIOuQ6H-oDM/mqdefault.jpg)](https://youtu.be/SIOuQ6H-oDM)
+[![Youtube Link to a Video Tutorial](https://i9.ytimg.com/vi/SIOuQ6H-oDM/mqdefault.jpg)](https://youtu.be/SIOuQ6H-oDM) 
 
 ## ToDo:
 - Add none linear paths
