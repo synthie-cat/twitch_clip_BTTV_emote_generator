@@ -32,7 +32,7 @@ def create_emote(start_frame, end_frame, filename, left, top, width, height, fol
 
     # Generate the GIF by stitching everything together using the palette as index
     print("Generating GIF...")
-    subprocess.run(["ffmpeg", "-loglevel", "quiet", "-i", f"{dir_path}/cropped_%03d.png", "-i", f"{dir_path}/palette_%03d.png", "-lavfi", f"fps=10,scale={size}:{size}:flags=lanczos,paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle", filename])
+    subprocess.run(["ffmpeg", "-loglevel", "fatal", "-i", f"{dir_path}/cropped_%03d.png", "-i", f"{dir_path}/palette_%03d.png", "-lavfi", f"fps=10,scale={size}:{size}:flags=lanczos,paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle", filename])
 
     file_size = os.stat(filename).st_size
     if file_size > 1048576:
@@ -45,7 +45,7 @@ def complete_run():
     # Get the URL of the video from the user
     url = input("Enter the URL of the clip: ")
 
-    download_clip(url, fps)
+    download_clip(url)
 
 def user_input():# Get the specifications from user
     start_frame = input("Enter the start frame: ") or 000
